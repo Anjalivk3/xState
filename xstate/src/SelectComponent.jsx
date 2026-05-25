@@ -1,4 +1,4 @@
-r import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./SelectComponent.module.css";
 const SelectComponent = () => {
     const [countryData, setCountryData] = useState([]); 
