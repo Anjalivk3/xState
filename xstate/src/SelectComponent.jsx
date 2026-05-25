@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+r import React, { useState, useEffect } from "react";
 import styles from "./SelectComponent.module.css";
 const SelectComponent = () => {
     const [countryData, setCountryData] = useState([]); 
@@ -10,7 +10,7 @@ const SelectComponent = () => {
 
     const countryDataFetch = async () => {
       try {
-        const apiRes = await fetch("https://crio-location-selector.onrender.com/countries");
+        const apiRes = await fetch("https://location-selector.labs.crio.do/countries");
         const actualData = await apiRes.json();        
         setCountryData(actualData);
         setSelectedCountry("");
@@ -26,7 +26,7 @@ const SelectComponent = () => {
     const stateDataFetch = async () => {
       if(selectedCountry){
           try {        
-        const apiRes = await fetch(`https://crio-location-selector.onrender.com/country=${selectedCountry}/states`);
+        const apiRes = await fetch(`https://location-selector.labs.crio.do/country=${selectedCountry}/states`);        
         const actualData = await apiRes.json(); 
         console.log("States Data" + actualData);       
         setStateData(actualData);  
@@ -42,7 +42,7 @@ const SelectComponent = () => {
     const cityDataFetch  = async () => {
       if(selectedCountry && selectedState){
         try {        
-        const apiRes = await fetch(`https://crio-location-selector.onrender.com/country=${selectedCountry}/state=${selectedState}/cities`);
+        const apiRes = await fetch(`https://location-selector.labs.crio.do/country=${selectedCountry}/state=${selectedState}/cities`);        
         const actualData = await apiRes.json(); 
         console.log("Cities Data" + actualData);       
         setCityData(actualData);        
